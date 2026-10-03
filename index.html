@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Surprise For You 💗</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  overflow:hidden;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3,#a18cd1);
+  color:white;
+}
+
+.screen{
+  min-height:100vh;
+  width:100%;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:25px;
+  position:relative;
+  overflow:hidden;
+}
+
+.screen.active{
+  display:flex;
+  animation:fade .8s ease;
+}
+
+.content{
+  width:min(500px,95%);
+  position:relative;
+  z-index:10;
+}
+
+h1{
+  font-size:clamp(32px,9vw,55px);
+  margin-bottom:18px;
+  text-shadow:0 5px 20px #8d174c;
+}
+
+h2{
+  font-size:clamp(25px,7vw,40px);
+  margin-bottom:15px;
+}
+
+p{
+  font-size:18px;
+  line-height:1.7;
+}
+
+button{
+  border:0;
+  padding:14px 25px;
+  margin:10px;
+  border-radius:30px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  background:white;
+  color:#e83e73;
+  box-shadow:0 8px 25px #7c164b66;
+  transition:.3s;
+}
+
+button:hover{
+  transform:scale(1.08);
+}
+
+.big-heart{
+  font-size:110px;
+  animation:heartbeat 1.2s infinite;
+  filter:drop-shadow(0 10px 20px #7c164b);
+}
+
+.lock{
+  font-size:75px;
+  animation:shake 2s infinite;
+}
+
+.card{
+  background:#ffffff20;
+  border:1px solid #ffffff55;
+  backdrop-filter:blur(15px);
+  padding:30px;
+  border-radius:30px;
+  box-shadow:0 20px 60px #6b174755;
+}
+
+.no{
+  position:relative;
+}
+
+.envelope{
+  width:240px;
+  height:160px;
+  background:#fff;
+  margin:30px auto;
+  border-radius:12px;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 15px 40px #70183f66;
+  animation:float 3s infinite;
+}
+
+.envelope:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  border-left:120px solid transparent;
+  border-right:120px solid transparent;
+  border-top:90px solid #ff8eb0;
+  z-index:2;
+}
+
+.envelope span{
+  position:absolute;
+  color:#e83e73;
+  font-size:45px;
+  left:95px;
+  top:55px;
+  z-index:4;
+}
+
+.gift{
+  width:150px;
+  height:130px;
+  background:#ff477e;
+  margin:35px auto;
+  position:relative;
+  border-radius:10px;
+  cursor:pointer;
+  animation:bounce 1.5s infinite;
+  box-shadow:0 20px 40px #6c123c66;
+}
+
+.gift:before{
+  content:"";
+  position:absolute;
+  width:25px;
+  height:130px;
+  background:#ffd166;
+  left:62px;
+}
+
+.gift:after{
+  content:"";
+  position:absolute;
+  width:175px;
+  height:35px;
+  background:#ff5d8f;
+  left:-12px;
+  top:-25px;
+  border-radius:8px;
+  border-bottom:8px solid #ffd166;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  margin-top:25px;
+}
+
+.reason{
+  background:#ffffff25;
+  border:1px solid #ffffff55;
+  border-radius:20px;
+  padding:20px;
+  min-height:120px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.4s;
+}
+
+.reason:hover{
+  transform:translateY(-8px) rotate(2deg);
+  background:#ffffff40;
+}
+
+.reason .answer{
+  display:none;
+}
+
+.reason.open .question{
+  display:none;
+}
+
+.reason.open .answer{
+  display:block;
+}
+
+.secret{
+  font-size:55px;
+  cursor:pointer;
+  animation:glow 1.5s infinite alternate;
+  margin:25px;
+}
+
+.final-message{
+  max-height:55vh;
+  overflow:auto;
+  text-align:left;
+  padding:25px;
+  background:#ffffff18;
+  border-radius:25px;
+  line-height:1.8;
+}
+
+.float-item{
+  position:fixed;
+  pointer-events:none;
+  animation:rise linear forwards;
+  z-index:2;
+}
+
+.petals{
+  position:fixed;
+  top:-30px;
+  pointer-events:none;
+  animation:fall linear forwards;
+  z-index:3;
+}
+
+.spark{
+  position:fixed;
+  pointer-events:none;
+  animation:spark 1s forwards;
+  z-index:20;
+}
+
+.progress{
+  position:absolute;
+  top:18px;
+  left:20px;
+  right:20px;
+  height:6px;
+  background:#ffffff35;
+  border-radius:10px;
+  z-index:30;
+}
+
+.progress span{
+  display:block;
+  height:100%;
+  width:
